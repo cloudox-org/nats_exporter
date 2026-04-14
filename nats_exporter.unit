@@ -1,0 +1,18 @@
+# -*- mode: conf -*-
+
+[Unit]
+Description=A prometheus exporter for NATS
+Documentation=https://github.com/nats-io/prometheus-nats-exporter
+After=network.target
+
+[Service]
+EnvironmentFile=-/etc/default/nats_exporter
+User=prometheus
+ExecStart=/usr/bin/nats_exporter $NATS_EXPORTER_OPTS
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=on-failure
+RestartSec=5s
+
+
+[Install]
+WantedBy=multi-user.target

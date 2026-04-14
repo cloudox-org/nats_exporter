@@ -2,14 +2,14 @@
 %global user prometheus
 %global group prometheus
 
-Name: artifactory_exporter
-Version: 1.16.1
+Name: nats_exporter
+Version: 0.19.2
 Release: 1%{?dist}
-Summary: Prometheus exporter for JFrog Artifactory stats.
+Summary: A prometheus exporter for NATS
 License: ASL 2.0
-URL:     https://github.com/peimanja/artifactory_exporter
+URL:     https://github.com/nats-io/prometheus-nats-exporter
 
-Source0: https://github.com/peimanja/artifactory_exporter/releases/download/v%{version}/%{name}-v%{version}-linux-amd64.tar.gz
+Source0: https://github.com/nats-io/prometheus-nats-exporter/releases/download/v%{version}/prometheus-nats-exporter-v%{version}-linux-x86_64.tar.gz
 Source1: %{name}.unit
 Source2: %{name}.default
 
@@ -17,10 +17,11 @@ Source2: %{name}.default
 Requires(pre): shadow-utils
 
 %description
-Collects metrics about an Artifactory system
+A prometheus exporter for NATS
 
 %prep
-%setup -q -D -c %{name}-v%{version}-linux-amd64
+%setup -q -D -c prometheus-nats-exporter-v%{version}-linux-x86_64
+mv -v prometheus-nats-exporter %{name}
 
 %build
 /bin/true
@@ -54,5 +55,5 @@ exit 0
 %{_unitdir}/%{name}.service
 
 %changelog
-* Thu Apr 02 2026 Ivan Garcia <igarcia@cloudox.org> - 1.16.1
-- Initial packaging for the 1.16.1 branch
+* Tue Mar 31 2026 Ivan Garcia <igarcia@cloudox.org> - 0.19.2
+- Initial packaging for the 0.19.2 branch

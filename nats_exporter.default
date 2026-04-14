@@ -1,0 +1,1 @@
+NATS_EXPORTER_OPTS="-varz http://localhost:8222"
