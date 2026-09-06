@@ -3,7 +3,7 @@
 %global group prometheus
 
 Name: nats_exporter
-Version: 0.20.1
+Version: 0.20.2
 Release: 1%{?dist}
 Summary: A prometheus exporter for NATS
 License: ASL 2.0
@@ -55,6 +55,8 @@ exit 0
 %{_unitdir}/%{name}.service
 
 %changelog
+* Sat Sep 05 2026 Ivan Garcia <igarcia@cloudox.org> - 0.20.2
+- Initial packaging for the 0.20.2 branch
 * Thu Aug 06 2026 Ivan Garcia <igarcia@cloudox.org> - 0.20.1
 - Initial packaging for the 0.20.1 branch
 * Tue Mar 31 2026 Ivan Garcia <igarcia@cloudox.org> - 0.19.2
